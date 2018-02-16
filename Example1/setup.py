@@ -9,8 +9,10 @@ from setuptools import setup, find_packages
 # __version__ == "0.0.1-dev"              # 2) 或直接在本地定义 version
 
 setup(
-    # 3) 或依据 tag 动态获得版本号
-    version_command='git describe',     # 如果采用 1) 或 2) 方式，则使用指令 `version=__version__`
+    # 3) 或依据 tag 动态获得版本号(参考文档 <git release flow>)
+    version_command='git describe --always',     # 如果采用 1) 或 2) 方式，则使用指令 `version=__version__`
+    # `--always` 如果没有打过标签会出现错误信息 `fatal: No names found, cannot describe anything.`，这个参数将返回 commit hash number 代替 tag 以避免错误.
+
     name = "mymodules",
     packages = find_packages(exclude=['tests', '*.tests', '*.tests.*']),
 
