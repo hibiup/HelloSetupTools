@@ -8,4 +8,4 @@ import submodule2
 
 class TestJoke(TestCase):
     def test_hello(self):
-        submodule2.hello
+        submodule2.main()
