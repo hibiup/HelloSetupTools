@@ -1,7 +1,8 @@
-import datetime
+from submodule1 import hello
 
-def hello():
-    print("hello world twice!! - " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+def main():
+    hello.greeting()
+
 
 if __name__ == '__main__':
-    hello()
+    main()

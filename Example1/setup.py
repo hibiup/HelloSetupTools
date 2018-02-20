@@ -6,6 +6,9 @@ from setuptools import setup, find_packages
 
 # 命令行："python setup.py --version" 可以获得版本号。
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 from submodule1 import __version__                    # 1) 从 submodule1.__init__.__version__ 获得版本号
 # __version__ = "0.0.2"                               # 2) 或直接在本地定义 version
 
@@ -16,7 +19,9 @@ setup(
     # `--long --dirty=-dev` 获得长格式版本信息： <version>-<times>-<commit-hash>-<dirty> 例如：0.0.2-0-g00bd0b4-dev
 
     name = "mymodules",
-    packages = find_packages(exclude=['tests', '*.tests', '*.tests.*']),
+    packages = find_packages(
+      exclude=['tests', '*.tests', '*.tests.*']
+    ),
 
     ########
     # 打包规则
@@ -29,4 +34,6 @@ setup(
         'submodule2': ['data/*.dat', 'data/*.dat1'],
     },
     #include_package_data = True,
+
+    install_requires=requirements,
 )

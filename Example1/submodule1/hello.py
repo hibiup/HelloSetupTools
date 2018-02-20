@@ -1,4 +1,4 @@
 import datetime
 
-def hello():
+def greeting():
     print("hello world! - " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
