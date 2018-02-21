@@ -27,29 +27,35 @@ Example1/
 
 ## 在项目根目录下执行 `setuptools`
 ```
+$ python setup.py sdist   # 推荐
+```
+或
+
+```
 $ python setup.py bdist_egg
 ```
 
 输出一些新的文件:
 ```
 Example1
-|-- build
-|   |-- bdist.linux-x86_64/
-|   |-- lib/...
 |-- mymodules.egg-info
 |   |-- dependency_links.txt
-|   |-- PKG-INFO
-|   |-- SOURCES.txt
-|   |-- top_level.txt
+|   |-- ...
 |-- dist
-|   |-- mymodules-0.1-py3.6.egg
+|   |-- mymodules-0.0.2-3-g92ad88d-dev.tar.gz
+|-- build       # (sdist不会生成这个目录)
+|   |-- bdist.linux-x86_64/
+|   |-- lib/...
 |-- setup.py
+|-- MANIFEST.in
 ```
 
-### dist  下的 `egg` 文件就是发布包，可以用 `unzip` 来察看内容：
+* `bdist_egg`　参数将生成 `mymodules-0.1-py3.6.egg` 取代 `mymodules-0.1-py3.6.tar.gz` (不推荐)
+
+### dist  下的文件就是发布包，可以用 `unzip` 来察看内容：
 ```
-$ upzip -l dist/mymodules-0.1-py3.6.egg
-Archive:  dist/mymodules-0.1-py3.6.egg
+$ upzip -l dist/mymodules-0.1-py3.6.tar.gz
+Archive:  dist/mymodules-0.1-py3.6.tar.gz
   Length      Date    Time    Name
 ---------  ---------- -----   ----
         1  2013-06-07 22:03   EGG-INFO/dependency_links.txt
@@ -81,8 +87,17 @@ test_hello (submodule2.tests.test_cases.TestJoke) ... ok
 
 在项目根目录下子执行安装：
 ```
-$ python setup.py install
+python -m pip install dist\mymodules-0.0.2_3_g92ad88d-py3.6.tar.gz
 ```
+或
+```
+python -m easy_install dist\mymodules-0.0.2_3_g92ad88d-py3.6.egg
+```
+
+或从头连编译打包带安装:
+
+```
+$ python setup.py install
 
 项目将会被安装到系统的 `/usr/local/lib/python3.6/dist-packages`　目录下并允许被其他项目引用:
 ```
