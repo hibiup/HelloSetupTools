@@ -98,6 +98,7 @@ python -m easy_install dist\mymodules-0.0.2_3_g92ad88d-py3.6.egg
 
 ```
 $ python setup.py install
+```
 
 项目将会被安装到系统的 `/usr/local/lib/python3.6/dist-packages`　目录下并允许被其他项目引用:
 ```
@@ -110,4 +111,9 @@ Windows 被安装到 `c:\program files\python\python36\lib\site-packages`目录
 ## 反安装
 ```
 pip uninstall mymodules
+```
+
+# 发布
+```
+python setup.py sdist bdist_wininst upload -r http://example.com/pypi
 ```

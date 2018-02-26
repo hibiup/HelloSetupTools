@@ -21,9 +21,9 @@ setup(
     # `--always` 如果没有打过标签会出现错误信息 `fatal: No names found, cannot describe anything.`，这个参数将返回 commit hash number 代替 tag 以避免错误.
     # `--long --dirty=-dev` 获得长格式版本信息： <version>-<times>-<commit-hash>-<dirty> 例如：0.0.2-0-g00bd0b4-dev
 
-    name = "mymodules",
+    name = "submodule1",
     packages = find_packages(
-      exclude=['tests', '*.tests', '*.tests.*']
+        exclude=['tests', '*.tests', '*.tests.*']
     ),
 
     ########
@@ -33,8 +33,6 @@ setup(
     package_data = {
         # 任何包中含有 .properties 文件，都包含它
         '':[ 'config/*.properties', '*.md', 'requirements.txt' ],
-        # 只包含 submodule1 的 data 文件夹中的 *.dat 和 *.dat1 文件
-        'submodule2': ['data/*.dat', 'data/*.dat1'],
     },
     # MANIFEST.in 文件用于定义其他不存在于 `package_data`(包含 __init__.py ) 范围内的文件。
 

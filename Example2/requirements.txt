@@ -1,0 +1,2 @@
+# List dependencies below
+git+https://bitbucket.org/jorkar/autoupgrade.git@master#egg=autoupgrade-0.2.0
