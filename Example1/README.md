@@ -127,4 +127,4 @@ python setup.py sdist bdist_wininst upload -r http://example.com/pypi
 $ python -m submodule1
 ```
 
-这将导致 python 尝试从 `__main__.py` 执行 `submodule1` 也就是执行 `submodule1.__init__.init()`
+这将导致 python 尝试从 `__main__.py` 执行 `submodule1.init()` 也就是执行 `submodule1.__init__.init()`
