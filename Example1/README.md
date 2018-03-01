@@ -119,3 +119,12 @@ pip uninstall mymodules
 ```
 python setup.py sdist bdist_wininst upload -r http://example.com/pypi
 ```
+
+# 执行
+`__main__.py` 是外部入口，它不能在模块被安装前直接执行，因为它尝试如同第三方程序载入模块然后执行它。
+
+```
+$ python -m submodule1
+```
+
+这将导致 python 尝试从 `__main__.py` 执行 `submodule1` 也就是执行 `submodule1.__init__.init()`
