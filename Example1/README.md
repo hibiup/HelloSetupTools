@@ -83,6 +83,8 @@ test_hello (submodule2.tests.test_cases.TestJoke) ... ok
 ...
 ```
 
+https://docs.python.org/2/library/unittest.html
+
 ## 安装
 
 在项目根目录下子执行安装：

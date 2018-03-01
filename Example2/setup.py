@@ -24,7 +24,8 @@ def install_deps():
 new_pkgs, links = install_deps()
 
 # 可以让 submodule2 在安装前检查依赖的版本，并自动升级到最新版(依赖必须发布到 pipy 中，否则会因为无法找到而出错)：
-# autoupgrade 0.2.0 之后才支持 master, 需要手工安装：pip install https://bitbucket.org/jorkar/autoupgrade/get/master.tar.gz --trusted-host bitbucket.org
+# autoupgrade 0.2.0 之后才支持 master, 需要手工安装：pip install https://bitbucket.org/jorkar/autoupgrade/get/master.tar.gz --trusted-host=bitbucket.org
+# 或python -m pip install git+https://bitbucket.org/jorkar/autoupgrade.git@master#autoupgrade-0.2.0 --trusted-host=bitbucket.org
 from autoupgrade import AutoUpgrade
 AutoUpgrade("submodule1", index="https://pypi.company.com/repos").upgrade_if_needed()
 
