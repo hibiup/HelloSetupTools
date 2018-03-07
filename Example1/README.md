@@ -5,7 +5,7 @@
 $ pip install setuptools　setuptools-version-command
 ```
 
-`setuptools-version-command` 用于实现动态版本控制(https://pypi.python.org/pypi/setuptools-version-command/1.3.5)，可以通过　`python setup.py --version` 获得版本号并传递给 git:
+`setuptools-version-command` 用于实现动态版本控制(https://pypi.python.org/pypi/setuptools-version-command/1.3.5)，可以通过　`python setup.py --version` 获得版本号并传递给 git，同时使得可以在 `setup.py` 中使用 `version_command` 指令。
 
 ```
 $ git tag -a $(python setup.py --version)-dev -m 'description of version'
