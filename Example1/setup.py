@@ -2,15 +2,15 @@
 Example of how to use setuptools
 """
 
+from submodule1 import __version__                    # 1) 从 submodule1.__init__.__version__ 获得版本号
+# __version__ = "0.0.2"                               # 2) 或直接在本地定义 version
+
 from setuptools import setup, find_packages
 
 # 命令行："python setup.py --version" 可以获得版本号。
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
-
-from submodule1 import __version__                    # 1) 从 submodule1.__init__.__version__ 获得版本号
-# __version__ = "0.0.2"                               # 2) 或直接在本地定义 version
 
 # 打包前执行 `git tag -a $(python setup.py --version)`　将 __version__ 注册为 tag number
 setup(
@@ -34,6 +34,7 @@ setup(
         # 任何包中含有 .properties 文件，都包含它
         '':[ 'config/*.properties', '*.md', 'requirements.txt' ],
     },
+    #include_package_data=True,
     # MANIFEST.in 文件用于定义其他不存在于 `package_data`(包含 __init__.py ) 范围内的文件。
 
     install_requires=requirements,
