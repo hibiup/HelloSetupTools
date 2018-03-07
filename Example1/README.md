@@ -1,3 +1,5 @@
+https://blog.ionelmc.ro/presentations/packaging/#slide:1
+
 # Steps
 
 ## 安装 `setuptools`　和　`setuptools-version-command`
