@@ -1,2 +1,2 @@
 include requirements.txt README.md
-recursive-include support_files
+recursive-include support_files *

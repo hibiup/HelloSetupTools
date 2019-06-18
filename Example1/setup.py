@@ -35,7 +35,8 @@ setup(
         '':[ 'config/*.properties', '*.md', 'requirements.txt' ],
     },
     #include_package_data=True,
-    # MANIFEST.in 文件用于定义其他不存在于 `package_data`(包含 __init__.py ) 范围内的文件。
+    # MANIFEST.in 文件用于定义其他不存在于 `package_data`(包含 __init__.py ) 范围内的文件，比如 项目根目录下的文件 README.md 等，
+    # 不在 package_data 查找范围内。
 
     install_requires=requirements,
 )
