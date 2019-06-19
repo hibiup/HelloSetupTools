@@ -24,6 +24,8 @@ Example1/
 |-- submodule2/
 |   |-- __init__.py
 |   |-- tests
+|-- support_files
+|   |-- ...
 ...
 ```
 

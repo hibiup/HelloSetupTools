@@ -17,12 +17,12 @@ setup(
     author='Jeff Wang',
     author_email='jeffwji@test.com',
 
+    name="setuptoolsdemo",
     version_command='git describe --always --long --dirty=-dev',  # 3) 获得　tag 动态获得版本号(参考文档 <git release flow>)
     # `--always` 如果没有打过标签会出现错误信息 `fatal: No names found, cannot describe anything.`，这个参数将返回 commit hash number 代替 tag 以避免错误.
     # `--long --dirty=-dev` 获得长格式版本信息： <version>-<times>-<commit-hash>-<dirty> 例如：0.0.2-0-g00bd0b4-dev
 
-    name = "submodule1",
-    packages = find_packages(
+    packages=find_packages(
         exclude=['tests', '*.tests', '*.tests.*']
     ),
 
