@@ -30,11 +30,11 @@ setup(
     # 打包规则
     #
     # 定义 src 目录下的子包的打包规则，缺省 setup.py 只打包 py 文件，如果希望加入其他文件，需要在 package_data 中定义。
-    package_data = {
+    package_data={
         # 任何包中含有 .properties 文件，都包含它
-        '':[ 'config/*.properties', '*.md', 'requirements.txt' ],
+        '': ['config/*.properties', '*.md', 'requirements.txt'],
     },
-    #include_package_data=True,
+    # include_package_data=True,
     # MANIFEST.in 文件用于定义其他不存在于 `package_data`(包含 __init__.py ) 范围内的文件，比如 项目根目录下的文件 README.md 等，
     # 不在 package_data 查找范围内。
 
