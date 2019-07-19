@@ -3,6 +3,7 @@ https://blog.ionelmc.ro/presentations/packaging/#slide:1
 # Steps
 
 ## 安装 `setuptools`　和　`setuptools-version-command`
+
 ```
 $ pip install setuptools　setuptools-version-command
 ```
@@ -14,6 +15,7 @@ $ git tag -a $(python setup.py --version)-dev -m 'description of version'
 ```
 
 ## 新建一个项目
+
 ```
 Example1/
 |-- setup.py
@@ -29,7 +31,10 @@ Example1/
 ...
 ```
 
-## 在项目根目录下执行 `setuptools`
+## 在项目根目录下执行 `setuptools`！！
+
+注意，因为这个项目包含多个 Example，每个都是一个独立的根项目，所以运行其中的测试案例的时候需要将执行目录切换到相应的案例根目录下，否则会报告模块找不到。
+
 ```
 $ python setup.py sdist   # 推荐
 ```
@@ -40,6 +45,7 @@ $ python setup.py bdist_egg
 ```
 
 输出一些新的文件:
+
 ```
 Example1
 |-- mymodules.egg-info
