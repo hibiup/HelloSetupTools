@@ -35,13 +35,24 @@ Example1/
 
 注意，因为这个项目包含多个 Example，每个都是一个独立的根项目，所以运行其中的测试案例的时候需要将执行目录切换到相应的案例根目录下，否则会报告模块找不到。
 
+Python 项目的打包方式有多种：
+
+推荐打包 wheel 格式发布文件
+
+```bash
+$ python setup.py bdist_wheel   # 推荐
 ```
-$ python setup.py sdist   # 推荐
-```
-或
+
+或打包 egg 格式发布文件
 
 ```
 $ python setup.py bdist_egg
+```
+
+打包源代码, 这将打包所有文件
+
+```bash
+$ python setup.py sdist   # 推荐
 ```
 
 输出一些新的文件:
@@ -127,7 +138,7 @@ pip uninstall mymodules
 
 # 发布
 ```
-python setup.py sdist bdist_wininst upload -r http://example.com/pypi
+python setup.py bdist_wheel bdist_wininst upload -r http://example.com/pypi
 ```
 
 # 执行

@@ -22,9 +22,12 @@ setup(
     # `--always` 如果没有打过标签会出现错误信息 `fatal: No names found, cannot describe anything.`，这个参数将返回 commit hash number 代替 tag 以避免错误.
     # `--long --dirty=-dev` 获得长格式版本信息： <version>-<times>-<commit-hash>-<dirty> 例如：0.0.2-0-g00bd0b4-dev
 
+    # find_package 想限制查找的访问，以下表示查找除了 tests 和 test 目录之外的所有其他目录下的项目文件。
     packages=find_packages(
-        exclude=['tests', '*.tests', '*.tests.*']
+        exclude=['tests', 'test']
     ),
+    # 也可以直接指定只打包某些目录
+    #   packages=['submodule1', 'submodule2']
 
     ########
     # 打包规则
@@ -35,7 +38,7 @@ setup(
         '': ['config/*.properties', '*.md', 'requirements.txt'],
     },
     # include_package_data=True,
-    # MANIFEST.in 文件用于定义其他不存在于 `package_data`(包含 __init__.py ) 范围内的文件，比如 项目根目录下的文件 README.md 等，
+    # MANIFEST.in 工作于 3.6 版本之前，用于定义其他不存在于 `package_data`(包含 __init__.py ) 范围内的文件，比如 项目根目录下的文件 README.md 等，
     # 不在 package_data 查找范围内。
 
     install_requires=requirements,
