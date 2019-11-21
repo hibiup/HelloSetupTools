@@ -28,6 +28,8 @@ setup(
     ),
     # 也可以直接指定只打包某些目录
     #   packages=['submodule1', 'submodule2']
+    # 但是不会包含 module1/submoduleA 和 module/submoduleB, 改成:
+    #   packages=find_packages() 或添加每一个submodule 的路径。
 
     ########
     # 打包规则

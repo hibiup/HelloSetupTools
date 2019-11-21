@@ -149,3 +149,36 @@ $ python -m submodule1
 ```
 
 这将导致 python 尝试从 `__main__.py` 执行 `submodule1.init()` 也就是执行 `submodule1.__init__.init()`
+
+
+# Release
+
+在 home 目录下配置.pypirc 文件：(假设 pypi 地址为：https://www.xxx.com/artifactory/pypi/simple/)
+
+```
+[distutils]
+index-servers = local
+
+[local]
+repository: https://www.xxx.com/artifactory/pypi
+username: <USERNAME>
+password: <PASSWORD>
+```
+
+1) 发布
+
+```
+# python setup.py bdist_wheel upload -r local
+```
+
+2) twine
+
+```bash
+# pip install twine
+```
+
+```bash
+# twine upload --repository local --cert=/path/to/certification dist/*
+或
+# twine upload --repository-url https://www.xxx.com/artifactory/pypi --cert=/path/to/certification dist/*
+```
